@@ -1,0 +1,28 @@
+// Para ler e escrever dados em Java, aqui na DIO padronizamos da seguinte forma: 
+// - new Scanner(System.in): cria um leitor de Entradas, com métodos úteis com prefixo "next";
+// - System.out.println:.imprime um texto de Saída (Output) e pulando uma linha.  
+
+import java.util.*;
+
+public class DIO {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        int morangos = input.nextInt();
+        int macas = input.nextInt();
+
+        double preco_morango = (morangos <= 5) ? 2.5 : 2.2;
+        double preco_maca = (macas <= 5) ? 1.8 : 1.5;
+        double valor_frutas = (morangos * preco_morango) + (macas * preco_maca);
+
+        if ((morangos + macas) > 8 || valor_frutas > 25) {
+            valor_frutas *= 0.9;
+        }
+
+        if (morangos == 5 && macas == 5) {
+            System.out.printf("%.2f", valor_frutas);
+        } else {
+            System.out.printf("%.1f", valor_frutas);
+        }
+    }
+}
